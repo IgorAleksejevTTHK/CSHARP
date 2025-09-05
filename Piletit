@@ -1,0 +1,53 @@
+using System;
+
+class Programm
+{
+    static void Main()
+    {
+        Console.WriteLine("Mis on sinu nimi?");
+        string nimi = Console.ReadLine();
+        Console.WriteLine($"Tere,{nimi}");
+
+        int age;  
+
+        while (true)
+        {
+            Console.Write("Kui vana sa oled? "); 
+            string input = Console.ReadLine();
+
+            bool isNumber = int.TryParse(input, out age);
+
+            if (!isNumber)  // если введено не число
+            {
+                Console.WriteLine("Viga! Sisesta number.");
+                continue;  
+            }
+
+            if (age < 0 || age > 100)  
+            {
+                Console.WriteLine("Vanus peaks olema 0-100.");
+                continue;  
+            }
+
+            
+            if (age < 6)
+            {
+                Console.WriteLine("Sul on tasuta pilet.");
+            }
+            else if (age >= 6 && age <= 14)
+            {
+                Console.WriteLine("Sul on lastepilet.");
+            }
+            else if (age >= 15 && age <= 65)
+            {
+                Console.WriteLine("Sul on täispilet.");
+            }
+            else  
+            {
+                Console.WriteLine("Sul on soodus pilet.");
+            }
+
+            break;  
+        }
+    }
+}
