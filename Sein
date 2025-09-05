@@ -1,0 +1,33 @@
+using System;
+
+class Sein
+{
+    static void Main()
+    {
+        Console.WriteLine("Sisesta seinte kõrgus meetrites:");
+        float korgus = float.Parse(Console.ReadLine());
+
+        Console.WriteLine("Sisesta seinte laius meetrites:");
+        float laius = float.Parse(Console.ReadLine());
+
+        float s = korgus * laius;
+
+        Console.WriteLine($"Seina pindala on {s} ruutmeetrit.");
+
+        Console.WriteLine("Kas sa soovid remonti teha?");
+        string vastus = Console.ReadLine();
+
+        if (vastus.ToLower() == "jah")
+        {
+            Console.WriteLine("Kui palju ruutmeeter maksab?");
+            float hind = float.Parse(Console.ReadLine());
+
+            float kulu = s * hind;
+            Console.WriteLine($"Remont maksab {kulu} eurot.");
+        }
+        else
+        {
+            Console.WriteLine("Davai!");
+        }
+    }
+}
