@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Pinginaabride nimed on Milan ja Nikita");
+        Console.WriteLine("Mis on esimese pinginaabri nimi?");
+        string nimi = Console.ReadLine();
+        Console.WriteLine($"Tere, {nimi}");
+
+        
+        Console.WriteLine("Mis on teine pinginaabri nimi?");
+        string nimi2 = Console.ReadLine();
+        Console.WriteLine($"Tere, {nimi2}");
+
+        string nimiLower = nimi.ToLower();
+        string nimi2Lower = nimi2.ToLower();
+
+        if (nimiLower == "milan" && nimi2Lower == "nikita" || nimiLower == "nikita" && nimi2Lower == "milan")
+        {
+
+            Console.WriteLine("Te olete pinginaabrid!");
+        }
+        else
+        {
+            Console.WriteLine("Te ei olete pinginaaber, mine ära!");
+        }
+    }
+}
