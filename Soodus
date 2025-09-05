@@ -1,0 +1,14 @@
+using System;
+
+class Hind
+{
+    static void Main()
+    {
+        Console.WriteLine("Sisesta soodushind:");
+        double soodushind = double.Parse(Console.ReadLine());
+
+        double alghind = soodushind / 0.7;
+
+        Console.WriteLine($"Alghind oli: {alghind:F2} eurot.");
+    }
+}
