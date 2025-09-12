@@ -1,0 +1,71 @@
+using KaloridApp;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KaloridApp
+{
+    public static class Kalorid
+    {
+        public static double ArvutaKalorivajadus(string sugu, int vanus, double pikkus, double kaal, double aktiivsus)
+        {
+            double bmr;
+
+            if (sugu.ToLower() == "mees")
+            {
+                bmr = 88.36 + (13.4 * kaal) + (4.8 * pikkus) - (5.7 * vanus);
+            }
+            else
+            {
+                bmr = 447.6 + (9.2 * kaal) + (3.1 * pikkus) - (4.3 * vanus);
+            }
+
+            return bmr * aktiivsus;
+        }
+    }
+
+}
+
+namespace c_1
+{
+    internal class StarClass
+    {
+        public static void Main(string[] args)
+        {
+
+            Console.WriteLine(" Kalorite kalkulaator ");
+
+            Console.Write("Sisesta oma nimi: ");
+            string nimi = Console.ReadLine();
+
+            Console.Write("Sisesta oma vanus (aastates): ");
+            int vanus = int.Parse(Console.ReadLine());
+
+            Console.Write("Sisesta sugu (mees või naine): ");
+            string sugu = Console.ReadLine();
+
+            Console.Write("Sisesta pikkus (cm): ");
+            double pikkus = double.Parse(Console.ReadLine());
+
+            Console.Write("Sisesta kaal (kg): ");
+            double kaal = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nVali aktiivsustase:");
+            Console.WriteLine("1. Väheaktiivne");
+            Console.WriteLine("2. Mõõdukalt aktiivne");
+            Console.WriteLine("3. Väga aktiivne");
+            Console.Write("Sisesta valik (1/2/  3): ");
+            string valik = Console.ReadLine();
+
+            double aktiivsus = 1.2;
+            if (valik == "2") aktiivsus = 1.55;
+            else if (valik == "3") aktiivsus = 1.9;
+
+            double kalorid = Kalorid.ArvutaKalorivajadus(sugu, vanus, pikkus, kaal, aktiivsus);
+
+            Console.WriteLine($"\n{nimi} päevane energiavajadus: {kalorid:F0} kcal");
+        }
+    }
+}
